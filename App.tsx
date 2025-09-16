@@ -120,7 +120,7 @@ function App() {
                     </div>
                 </header>
 
-                <main className="flex-1 flex flex-col gap-8">
+                <main className="flex-1 flex flex-col gap-8 mt-4">
                     {leagueData.groups.map((group, index) => (
                         <StandingsTable 
                           key={group.id} 
