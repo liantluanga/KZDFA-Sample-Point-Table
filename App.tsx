@@ -94,7 +94,7 @@ function App() {
     <div className="bg-gray-800 min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-8">
         <div className="w-[1080px] h-[1080px] bg-[#0D1117] text-white flex overflow-hidden shadow-2xl" ref={exportRef}>
             <div className="w-20 bg-[#14f1d9] flex items-center justify-center">
-                <h2 className="text-4xl font-extrabold text-[#0D1117] uppercase transform -rotate-90 whitespace-nowrap tracking-[0.2em]">
+                <h2 className="text-[39px] font-extrabold text-[#0D1117] uppercase transform -rotate-90 whitespace-nowrap tracking-[0.2em]">
                     Standings
                 </h2>
             </div>
