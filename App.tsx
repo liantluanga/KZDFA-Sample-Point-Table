@@ -38,6 +38,7 @@ const initialLeagueData: LeagueData = {
   ],
   footerText: 'Technical and Registration Committee',
   footerLogo: null,
+  footerLogo2: null,
 };
 
 
@@ -46,7 +47,7 @@ function App() {
   const [isExporting, setIsExporting] = useState(false);
   const exportRef = useRef<HTMLDivElement>(null);
 
-  const handleLeagueDataChange = (field: keyof LeagueData, value: string | number) => {
+  const handleLeagueDataChange = (field: keyof LeagueData, value: string | number | null) => {
     setLeagueData((prev) => ({ ...prev, [field]: value }));
   };
   
@@ -102,19 +103,19 @@ function App() {
                 <header className="flex justify-between items-start mb-8">
                     <div>
                         <h1 className="text-6xl font-extrabold">
-                          <EditableField value={leagueData.title} onChange={(val) => handleLeagueDataChange('title', val as string)} className="w-full"/>
+                          <EditableField value={leagueData.title} onChange={(val) => handleLeagueDataChange('title', val)} className="w-full"/>
                         </h1>
                         <p className="text-5xl font-extrabold">
-                          <EditableField value={leagueData.subTitle} onChange={(val) => handleLeagueDataChange('subTitle', val as string)} className="w-full"/>
+                          <EditableField value={leagueData.subTitle} onChange={(val) => handleLeagueDataChange('subTitle', val)} className="w-full"/>
                         </p>
                     </div>
                     <div className="text-right">
                         <p className="text-2xl font-bold text-[#14f1d9] flex items-center gap-2 justify-end">
                             Match Day 
-                            <EditableField value={leagueData.matchDay} onChange={(val) => handleLeagueDataChange('matchDay', Number(val))} inputType="number" className="w-12"/>
+                            <EditableField value={leagueData.matchDay} onChange={(val) => handleLeagueDataChange('matchDay', val)} inputType="number" className="w-12"/>
                         </p>
                         <p className="text-lg text-gray-400">
-                           <EditableField value={leagueData.date} onChange={(val) => handleLeagueDataChange('date', val as string)} />
+                           <EditableField value={leagueData.date} onChange={(val) => handleLeagueDataChange('date', val)} />
                         </p>
                     </div>
                 </header>
@@ -133,14 +134,22 @@ function App() {
                 
                 <footer className="mt-auto flex justify-between items-end pt-8">
                     <div className="text-lg text-gray-400">
-                        <EditableField value={leagueData.footerText} onChange={(val) => handleLeagueDataChange('footerText', val as string)} />
+                        <EditableField value={leagueData.footerText} onChange={(val) => handleLeagueDataChange('footerText', val)} />
                     </div>
-                    <ImageUploader
-                        imageUrl={leagueData.footerLogo}
-                        onImageChange={(val) => handleLeagueDataChange('footerLogo', val)}
-                        shape="rectangle"
-                        className="w-40 h-20 bg-gray-800"
-                    />
+                    <div className="flex items-center gap-4">
+                        <ImageUploader
+                            imageUrl={leagueData.footerLogo}
+                            onImageChange={(val) => handleLeagueDataChange('footerLogo', val)}
+                            shape="rectangle"
+                            className="w-40 h-20 bg-gray-800"
+                        />
+                        <ImageUploader
+                            imageUrl={leagueData.footerLogo2}
+                            onImageChange={(val) => handleLeagueDataChange('footerLogo2', val)}
+                            shape="rectangle"
+                            className="w-40 h-20 bg-gray-800"
+                        />
+                    </div>
                 </footer>
             </div>
         </div>

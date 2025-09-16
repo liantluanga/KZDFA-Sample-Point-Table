@@ -24,4 +24,5 @@ export interface LeagueData {
   groups: Group[];
   footerText: string;
   footerLogo: string | null;
+  footerLogo2: string | null;
 }
