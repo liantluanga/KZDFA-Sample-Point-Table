@@ -1,0 +1,5 @@
+{
+  "name": "Football League Standings Generator",
+  "description": "A dynamic and customizable football league standings generator. Users can edit team names, logos, scores, and other league information, then export the final standings table as a high-quality image.",
+  "requestFramePermissions": []
+}
